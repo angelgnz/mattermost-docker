@@ -63,14 +63,6 @@ services:
       - ${CALLS_PORT}:8443/udp
       - ${CALLS_PORT}:8443/tcp
 
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.mattermost.rule=Host(`mm.sirio.one`)"  # Replace with your domain
-      - "traefik.http.routers.mattermost.entrypoints=web"
-     # - "traefik.http.services.mattermost.loadbalancer.server.port=8065"
-    networks:
-      - proxy
-
 # If you use rolling image tags and feel lucky watchtower can automatically pull new images and
 # instantiate containers from it. https://containrrr.dev/watchtower/
 # Please keep in mind watchtower will have access on the docker socket. This can be a security risk.
