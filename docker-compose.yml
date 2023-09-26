@@ -65,7 +65,7 @@ services:
       - "traefik.http.routers.mattermost.entrypoints=web"
       - "traefik.http.services.mattermost.loadbalancer.server.port=8065"
     networks:
-      - traefik
+      - proxy
     ports:
       - ${CALLS_PORT}:8443/udp
       - ${CALLS_PORT}:8443/tcp
