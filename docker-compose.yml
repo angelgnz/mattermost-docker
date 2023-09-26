@@ -64,8 +64,6 @@ services:
       - "traefik.http.routers.mattermost.rule=Host(`mm.sirio.one`)"  # Replace with your domain
       - "traefik.http.routers.mattermost.entrypoints=web"
       - "traefik.http.services.mattermost.loadbalancer.server.port=8065"
-    networks:
-      - proxy
     ports:
       - ${CALLS_PORT}:8443/udp
       - ${CALLS_PORT}:8443/tcp
