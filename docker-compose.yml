@@ -59,6 +59,13 @@ services:
 
       # additional settings
       - MM_SERVICESETTINGS_SITEURL
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mattermost.rule=Host(`mm.sirio.one`)"  # Replace with your domain
+      - "traefik.http.routers.mattermost.entrypoints=web"
+      - "traefik.http.services.mattermost.loadbalancer.server.port=8065"
+    networks:
+      - traefik
     ports:
       - ${CALLS_PORT}:8443/udp
       - ${CALLS_PORT}:8443/tcp
